@@ -7,20 +7,16 @@
  *
  * Return: 0 if tree is NULL.
  */
-
 size_t binary_tree_nodes(const binary_tree_t *tree)
 {
-	if (tree == NULL)
-		return (0);
-
-	size_t nodesN = 0;
+	size_t nodes = 0;
 
 	if (tree)
 	{
-		nodesN += tree->right || tree->left ? 1 : 0;
-		nodesN += binary_tree_nodes(tree->right);
-		nodesN += binary_tree_nodes(tree->left);
+		nodes += (tree->left || tree->right) ? 1 : 0;
+		nodes += binary_tree_nodes(tree->left);
+		nodes += binary_tree_nodes(tree->right);
 	}
 
-	return (nodesN);
+	return (nodes);
 }
