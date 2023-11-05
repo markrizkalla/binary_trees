@@ -8,26 +8,16 @@
  *
  * Return: A pointer to the node containing a value equals to value.
  */
-
 bst_t *bst_search(const bst_t *tree, int value)
 {
-	if (tree == NULL)
-		return (NULL);
-
-	bst_t *curr = (bst_t *)tree;
-
-	while (curr != NULL)
+	if (tree != NULL)
 	{
-		if (value < curr->n)
-		{
-			curr = curr->left;
-		} else if (value > curr->n)
-		{
-			curr = curr->right;
-		}else
-		{
-			return (curr);
-		}
+		if (tree->n == value)
+			return ((bst_t *)tree);
+		if (tree->n > value)
+			return (bst_search(tree->left, value));
+
+		return (bst_search(tree->right, value));
 	}
 
 	return (NULL);
