@@ -1,5 +1,6 @@
 #include "binary_trees.h"
 #include <limits.h>
+
 int binary_tree_is_avl(const binary_tree_t *tree);
 int is_avl_helper(const binary_tree_t *tree, int min, int max);
 int height(const binary_tree_t *tree);
